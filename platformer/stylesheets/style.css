@@ -1,0 +1,25 @@
+body {
+  background-color: #444;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#game {
+  height: 480px;
+  width: 640px;
+  background-color: black;
+  position: relative;
+}
+
+#game .block {
+  position: absolute;
+  background-color: #155314;
+}
+
+#game #actor {
+  position: absolute;
+  background-color: #860000;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,71 @@
+body {
+	overflow: hidden;
+}
+
+.bg {
+	background-color: #222;
+	position: relative;
+	transition-duration: 1s;
+	transition-property: transform;
+}
+
+#container {
+	background-color: white;
+	height: 300px;
+	width: 600px;
+	margin: 0 auto;
+	padding: 50px;
+	border-radius: 10px;
+}
+	
+	#quoteBox {
+		font-family: 'Roboto Slab', serif;
+		font-size: 24px;
+		text-align: justify;
+	}
+
+	#authorBox {
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 20px;
+		text-align: right;
+	}
+.btn {
+	bottom: 50px;
+	font-family: 'Roboto Slab', serif;
+	background-color: #aaa;
+}
+
+#next {
+	position: absolute;
+	right: 50px;
+}
+	button:hover {
+		background-color: #222;
+		color: #ddd;
+		cursor: pointer;
+	}
+	button:focus {
+		outline: none;
+	}
+
+@keyframes animate {
+	0% {
+
+	}
+	33% {
+		transform: translateY(250%);
+		opacity: 0;
+	}
+	66% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	80%{
+		opacity: 1;
+	}
+}
+	.animate {
+		animation-name: animate;
+		animation-duration: 1.5s;
+		animation-timing-function: ease-in-out;
+	}

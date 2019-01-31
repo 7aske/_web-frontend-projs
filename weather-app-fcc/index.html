@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Weather check app">
+		<meta name="keywords" content="weather check app">
+		<meta name="author" content="Nikola Tasic">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image" href="./favico.png"><!-- Webpage icon -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> <!-- reset.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> <!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> <!-- Animate.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- FontAwesome -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> <!-- Fonts -->
+		<link rel="stylesheet" type="text/css" href="./css/weathericons.css"> <!-- weather icons -->
+		<link rel="stylesheet" type="text/css" href="./css/style.css"> <!-- local CSS -->
+		<!-- <link rel="stylesheet" type="text/css" href="./css/responsive.css"> local Responsive -->
+		
+		
+
+		<title>Weather</title>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> <!-- jQuery -->
+		<div id="wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-12" id="image">
+						
+						<div class="icon sun-shower hide">
+							<div class="cloud"></div>
+							<div class="sun">
+							    <div class="rays"></div>
+							</div>
+							<div class="rain"></div>
+						</div>
+
+						<div class="icon thunder-storm hide">
+							<div class="cloud"></div>
+							<div class="lightning">
+						    	<div class="bolt"></div>
+						    	<div class="bolt"></div>
+							</div>
+						</div>
+
+						<div class="icon cloudy hide">
+							<div class="cloud"></div>
+							<div class="cloud"></div>
+						</div>
+
+						<div class="icon flurries hide">
+							<div class="cloud"></div>
+							<div class="snow">
+						    	<div class="flake"></div>
+						    	<div class="flake"></div>
+							</div>
+						</div>
+
+						<div class="icon sunny hide">
+							<div class="sun">
+						    	<div class="rays"></div>
+							</div>
+						</div>
+
+						<div class="icon rainy hide">
+							<div class="cloud"></div>
+							<div class="rain"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12" id="temperature">
+						<p class="type">
+							
+						</p>
+						<button id="cf" class="btn btn-info"></button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12" id="conditions">
+						<p>
+							
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12" id="location">
+						<p>
+							
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(window).resize(function(){
+				var windowWidth =  ($(window).width())
+				var windowHeight =  ($(window).height())
+				$('.container').css({
+			        position:'fixed',
+			        height: windowHeight,
+			        left: (windowWidth - $('.container').outerWidth())/2
+			        //top: (windowHeight - $('#container').outerHeight())/2
+			    });
+			    $('.icon').css({
+			        left: ($('.container').outerWidth() - $('.icon').outerWidth())/2
+			        //top: (windowHeight - $('#container').outerHeight())/2
+			    });
+			    $('#wrapper').css({
+			       height: windowHeight,
+			       width: windowWidth
+			    });
+			});
+			$(window).resize();
+		</script>
+		<script type="text/javascript">
+				
+				var host = window.location.href;
+				// 	host = host.substr(5);
+				if (host.indexOf("https") == -1){
+					console.log(host.indexOf("https"))
+					window.location = 'https://wchk.herokuapp.com/'
+					console.log('Opening the app through https://');
+				};
+			$(document).ready(function(){
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position){
+						var latitude = position.coords.latitude;
+						var longitude = position.coords.longitude;
+						// console.log(position.coords.latitude);
+						// console.log(position.coords.longitude);
+						$('.geolocation>p').html("latitude: " + latitude + " | longitude: " + longitude);
+						$.getJSON('https://fcc-weather-api.glitch.me/api/current?lon=' + longitude + '&lat=' + latitude, function(json){
+						var jsonData = json;
+
+						console.log(jsonData);
+
+						var location = jsonData.name;
+						var country = jsonData.sys.country;
+						var humidity = jsonData.main.humidity;
+						var pressure = jsonData.main.pressure;
+						var temperature = jsonData.main.temp;
+							var mainWeather = jsonData.weather['0'].main;
+							var idWeather = jsonData.weather['0'].id;
+
+						console.log(idWeather);	
+
+						switch (true) {
+							case (200 <= idWeather && idWeather <= 232):
+								$('.thunder-storm').removeClass('hide');
+								break;
+							case (300 <= idWeather && idWeather <= 321):
+								$('.sun-shower').removeClass('hide');
+								break;
+							case (500 <= idWeather && idWeather <= 531):
+								$('.rainy').removeClass('hide');
+								break;
+							case (600 <= idWeather && idWeather <= 622):
+								$('.flurries').removeClass('hide');
+								break;
+							case (700 <= idWeather && idWeather <= 781):
+								$('.cloudy').removeClass('hide');
+								break;
+							case (801 <= idWeather && idWeather <= 804):
+								$('.cloudy').removeClass('hide');
+								break;
+							case (800 == idWeather):
+								$('.sunny').removeClass('hide');
+								break;
+						}
+						$('#cf').html(temperature + String.fromCharCode(176) + 'C');
+						var cfChange = 'celsius';
+						$('#cf').click(function(){
+							if (cfChange == 'celsius') {
+								cfChange = 'fahrenheit';
+								$('#cf').html(temperature * 9 / 5 + 32 + String.fromCharCode(176) + 'F');
+							} else {
+								$('#cf').html(temperature + String.fromCharCode(176) + 'C');
+								cfChange = 'celsius';
+							}
+						})
+
+						$('#temperature .type').html(mainWeather);
+						
+						$('#conditions>p').html(
+							'Pressure: ' + pressure + '<span> mBar</span>' + '<br>' + 'Humidity: ' + humidity + '<span> %</span>');
+						$('#conditions>p>span').css('color', '#ad1212');
+
+						$('#location>p').html(
+							location + ', ' + country);
+
+					});
+				})
+					} else {
+						alert('Geolocation not supported!')
+					}				
+			});
+			var cfChange = 'celsius';
+		</script>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+body,
+html {
+	padding: 0px;
+	margin: 0px;
+	background-color: skyblue;
+	overflow: hidden;
+}
+.container-fluid {
+	font-family: 'Lato';
+	img {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+
+		filter: blur(4px);
+	}
+	.weather-container {
+		height: 100vh;
+		color: #fff;
+		background-color: rgba(20, 20, 20, 0.4);
+
+		.weather-currently {
+			height: 35vh;
+
+			.current {
+				strong {
+					font-size: 120px;
+				}
+				small {
+					font-size: 18px;
+				}
+				div {
+					height: 10vh;
+					margin-top: -3vh;
+					text-align: center;
+				}
+			}
+
+			margin: {
+				bottom: 2vh;
+			}
+			border: {
+				bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}
+		}
+		.weather-location {
+			margin: {
+				top: 3vh;
+			}
+			strong {
+				font-size: 24px;
+			}
+			margin: {
+				bottom: 2vh;
+			}
+		}
+		.weather-hourly {
+			.container-hours {
+				overflow: hidden;
+			}
+			.container-hours {
+				display: flex;
+				flex-direction: row;
+				.hour {
+					width: 16.66%;
+					.hour-header {
+						height: 20%;
+					}
+					.hour-icon {
+						margin-top: -20px;
+						height: 60%;
+					}
+					.hour-temperature {
+						height: 30%;
+						line-height: 100%;
+						position: relative;
+						div {
+							width: 100%;
+							position: absolute;
+							bottom: 0;
+							text-align: center;
+							font-weight: 700;
+						}
+					}
+				}
+			}
+
+			.day {
+				font-weight: 700;
+				margin-right: 5px;
+				margin-bottom: 1vh;
+			}
+			padding: {
+				top: 1vh;
+				bottom: 1vh;
+			}
+			margin: {
+				bottom: 1vh;
+				top: 1vh;
+			}
+			border: {
+				bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}
+		}
+		.weather-daily {
+			height: 33vh;
+			.weather-day {
+				margin: {
+					top: 1vh;
+					bottom: 1vh;
+				}
+				height: 3.5vh;
+				svg {
+					height: 3vh !important;
+					width: 3vh !important;
+				}
+				.day-icon {
+					overflow: hidden;
+					height: 100%;
+				}
+			}
+			margin: {
+				top: 1vh;
+			}
+			border: {
+				bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}
+		}
+	}
+}

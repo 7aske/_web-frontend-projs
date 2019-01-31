@@ -1,0 +1,132 @@
+body,
+html {
+  padding: 0px;
+  margin: 0px;
+  background-color: skyblue;
+  overflow: hidden;
+}
+
+.container-fluid {
+  font-family: 'Lato';
+}
+
+.container-fluid img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
+.container-fluid .weather-container {
+  height: 100vh;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.4);
+}
+
+.container-fluid .weather-container .weather-currently {
+  height: 35vh;
+  margin-bottom: 2vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container-fluid .weather-container .weather-currently .current strong {
+  font-size: 120px;
+}
+
+.container-fluid .weather-container .weather-currently .current small {
+  font-size: 18px;
+}
+
+.container-fluid .weather-container .weather-currently .current div {
+  height: 10vh;
+  margin-top: -3vh;
+  text-align: center;
+}
+
+.container-fluid .weather-container .weather-location {
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+}
+
+.container-fluid .weather-container .weather-location strong {
+  font-size: 24px;
+}
+
+.container-fluid .weather-container .weather-hourly {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours {
+  overflow: hidden;
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours .hour {
+  width: 16.66%;
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours .hour .hour-header {
+  height: 20%;
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours .hour .hour-icon {
+  margin-top: -20px;
+  height: 60%;
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours .hour .hour-temperature {
+  height: 30%;
+  line-height: 100%;
+  position: relative;
+}
+
+.container-fluid .weather-container .weather-hourly .container-hours .hour .hour-temperature div {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.container-fluid .weather-container .weather-hourly .day {
+  font-weight: 700;
+  margin-right: 5px;
+  margin-bottom: 1vh;
+}
+
+.container-fluid .weather-container .weather-daily {
+  height: 33vh;
+  margin-top: 1vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container-fluid .weather-container .weather-daily .weather-day {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  height: 3.5vh;
+}
+
+.container-fluid .weather-container .weather-daily .weather-day svg {
+  height: 3vh !important;
+  width: 3vh !important;
+}
+
+.container-fluid .weather-container .weather-daily .weather-day .day-icon {
+  overflow: hidden;
+  height: 100%;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>YouTube Viewer</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand">YouTube Viewer</a>
+		<form class="form-inline">
+			<input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+
+		</form>
+	</nav>
+	<main>
+		<div id="videoContainer" class="container-fluid row">
+
+		</div>
+		<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="card bg-dark modal-dialog modal-lg">
+				<div class="modal-content">
+				</div>
+			</div>
+		</div>
+		<div id="loadFade" style="margin-top: 3rem" class="modal-backdrop show">
+		</div>
+	</main>
+	<script src="./dist/bundle.js"></script>
+</body>
+
+</html>

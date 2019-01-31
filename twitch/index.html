@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Twitch viewing app">
+	<meta name="keywords" content="twitch app viewer stream game">
+	<meta name="author" content="Nikola Tasic">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image" href="./images/favico.png">
+	<!-- Webpage icon -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+	<!-- reset.css -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- FontAwesome -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<!-- local CSS -->
+	<link rel="stylesheet" type="text/css" href="./css/responsive.css">
+	<!-- local Responsive -->
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Play" rel="stylesheet">
+	<!-- Fonts -->
+
+
+	<title>Twitch app</title>
+</head>
+
+<body>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<!-- jQuery -->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="header">
+				<img src="./images/twitch-logo.jpg">
+			</div>
+		</div>
+		<div class="container">
+			<div class="row stream-container hide">
+				<div class="col-3">
+					<a href=""><img src="https://static-cdn.jtvnw.net/user-default-pictures/27103734-3cda-44d6-a384-f2ab71e4bb85-profile_image-300x300.jpg"
+						 class="stream-image"></a>
+				</div>
+				<div class="col-6">
+					<a href=""><h2 class="stream-name">
+
+						</h2></a>
+					<a href=""><h4 class="stream-status">
+
+						</h4></a>
+				</div>
+				<div class="col-3">
+					<div>
+						<h5 class="viewer-count"></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+			// $('body').css({
+			// 	height: $(window).height(),
+			// 	width: $(window).width()
+			// });
+	</script>
+	<script type="text/javascript" src="./js/twitch.js"></script>
+</body>
+
+</html>

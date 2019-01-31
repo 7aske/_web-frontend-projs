@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Nikola Tasic">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image" href="./favico.png"> <!-- Webpage icon -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> <!-- reset.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> <!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> <!-- Animate.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- FontAwesome -->
+		<link rel="stylesheet" type="text/css" href="./css/style.css"> <!-- local CSS -->
+		<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> <!-- Fonts -->
+		
+
+		<title></title>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> <!-- jQuery -->
+		<div class="container-fluid">
+			<div id="gameContainer" class="animated pulse">
+				<div id="greenField" class="field">
+					
+				</div><!--
+				--><div id="redField" class="field">
+					
+				</div><!--
+				--><div id="yellowField" class="field">
+					
+				</div><!--
+				--><div id="blueField" class="field">
+					
+				</div><!--
+				--><div id="controlField" class="animated bounce">
+					<p id="lengthDisplay" class="display">0</p>
+					<button id="play" class="btn btn-default" onclick="btnPress(event)"><span class="fa fa-gamepad"></span>PLAY</button>
+					<button id="reset" class="btn btn-default" onclick="btnPress(event)"><span class="fa fa-refresh"></span>RESET</button>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function posCont(element){
+				var gameContainer = document.getElementById('gameContainer');
+				var y = window.innerHeight;
+				var x = window.innerWidth;
+				element.style.top = ((y / 2) - (element.offsetHeight / 2)) + 'px';
+				element.style.left = ((x / 2) - (element.offsetWidth / 2)) + 'px';
+			}
+			document.addEventListener('DOMContentLoaded', function(){
+				posCont(gameContainer);
+			});
+			window.addEventListener('resize', function(){
+				posCont(gameContainer);
+			});
+			function btnPress(event){
+				event.target.style.transform = 'translateY(5px)';
+				event.target.style.boxShadow = '0px 0px 0px black';
+				setTimeout(function(){
+					event.target.style.transform = 'translateY(-5px)';
+					event.target.style.boxShadow = '0px 5px 0px black';
+				}, 200);
+			}
+		</script>
+		<script type="text/javascript" src="./js/game.js"></script>
+	</body>
+</html>

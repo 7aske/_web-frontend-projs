@@ -1,0 +1,45 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #c7c7c7;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.list-group-item:hover {
+  background-color: gray;
+}
+
+.invisible {
+  display: none !important;
+}
+
+#header {
+  line-height: 32px;
+}
+
+#header .text-right {
+  font-size: 24px;
+}
+
+.list-group-item:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.text-muted {
+  text-transform: capitalize;
+}
+
+.nSelect {
+  width: 100%;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+label {
+  font-size: 24px;
+}
+/*# sourceMappingURL=style.css.map */

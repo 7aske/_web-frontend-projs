@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="calculator">
+		<meta name="keywords" content="calculator">
+		<meta name="author" content="Nikola Tasic">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image" href="http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Calculator-icon.png"> <!-- Webpage icon -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> <!-- reset.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> <!-- Bootstrap -->
+		<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> Animate.css -->
+		<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> FontAwesome -->
+		<link rel="stylesheet" type="text/css" href="./css/style.css"> <!-- local CSS -->
+		<!--<link rel="stylesheet" type="text/css" href="./css/responsive.css">  local Responsive -->
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> <!-- Fonts -->
+		
+
+		<title>JS Calculator</title>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> <!-- jQuery -->
+		<div class="container-fluid">
+			<div class="container">
+				<div id="calculator-body">
+					<div id="calculator-display">
+						<h2 id="result-display">
+							0
+						</h2>
+						<h3 id="function-display">
+							
+						</h3>
+					</div>
+					<div id="calculator-controls">
+						<div id="function">
+							   <div class="btn-function"><button id="add" class="btn" class="btn" onclick="cl(event)">+</button></div><!--
+							--><div class="btn-function"><button id="subtract" class="btn" class="btn" onclick="cl(event)">-</button></div><!--
+							--><div class="btn-function"><button id="multiply" class="btn" class="btn" onclick="cl(event)">*</button></div><!--
+							--><div class="btn-function"><button id="divide" class="btn" class="btn" onclick="cl(event)">/</button></div><!--
+							--><div class="btn-function"><button id="clear" class="btn" class="btn" onclick="cl(event)">CE</button></div>
+						</div>
+						<div id="numbers">
+							   <div class="btn-numbers"><button id="seven" class="btn" onclick="cl(event)">7</button></div><!--
+							--><div class="btn-numbers"><button id="eight" class="btn" onclick="cl(event)">8</button></div><!--
+							--><div class="btn-numbers"><button id="nine" class="btn" onclick="cl(event)">9</button></div><!--
+							--><div class="btn-numbers"><button id="four" class="btn" onclick="cl(event)">4</button></div><!--
+							--><div class="btn-numbers"><button id="five" class="btn" onclick="cl(event)">5</button></div><!--
+							--><div class="btn-numbers"><button id="six" class="btn" onclick="cl(event)">6</button></div><!--
+							--><div class="btn-numbers"><button id="one" class="btn" onclick="cl(event)">1</button></div><!--
+							--><div class="btn-numbers"><button id="two" class="btn" onclick="cl(event)">2</button></div><!--
+							--><div class="btn-numbers"><button id="three" class="btn" onclick="cl(event)">3</button></div><!--
+							--><div class="btn-numbers"><button id="zero" class="btn" onclick="cl(event)">0</button></div><!--
+							--><div class="btn-numbers"><button id="dot" class="btn" onclick="cl(event)">.</button></div><!--
+							--><div class="btn-numbers"><button id="calc" class="btn" onclick="cl(event)">=</button></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script type="text/javascript">
+		function cl(event){
+			event.target.style.transform = 'translate(0px, 5px)'
+			setTimeout(function(){event.target.style.transform = 'translate(0px, 0px)'},50)
+		}
+		function resizeCenter(){
+			for (let i = 0; i < document.getElementsByClassName('container-fluid').length; i++){
+				document.getElementsByClassName('container-fluid')[i].style.width = window.innerWidth + 'px';
+				document.getElementsByClassName('container-fluid')[i].style.height = window.innerHeight + 'px';
+			}	
+			document.getElementById('calculator-body').style.top = (window.innerHeight / 2) - (document.getElementById('calculator-body').offsetHeight / 2) + 'px';
+			document.getElementById('calculator-body').style.left = (document.getElementById('calculator-body').parentElement.offsetWidth / 2) - (document.getElementById('calculator-body').offsetWidth / 2) + 'px';
+		};
+		window.addEventListener('load', resizeCenter);
+		window.addEventListener('resize', resizeCenter);
+	</script>
+	<script type="text/javascript" src="./js/calculator.js"></script>
+	</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png">
+	<title>LFM Generator</title>
+	<style type="text/css">
+		.container-fluid {
+			background-color: blue;
+			background-image: url(http://hddesktopwallpapers.in/wp-content/uploads/2015/11/world-of-warcraft-background-1920x1080.jpg);
+		}
+		.container {
+			position: relative;
+			padding: 50px;
+			border-radius: 10px;
+			border: 3px solid #ddd;
+			background-color: rgba(255,255,255,0.7);
+		}
+		#raid label, #diff label, #lfm label {
+			display: block;
+			padding: 5px 10px 10px 10px;
+		}
+		#raid span, #raid input {
+			display: inline-block;
+			margin-left: -4px;
+			width: 50%;
+		}
+		#diff span, #diff input {
+			display: inline-block;
+			margin-left: -4px;
+			width: 50%;
+		}
+		#lfm span, #lfm + input {
+			display: inline-block;
+			margin-left: -4px;
+			width: 50%;
+		}
+		textarea {
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			height: 100px;
+			resize: none;
+			width: 100%;
+		}
+		.hover {
+			border-radius: 5px;
+			border: 2px solid rgba(255,255,255,0);
+			padding-left: 15px;
+		}
+		.hover:hover {
+			border-radius: 5px;
+			border: 2px solid #007bff
+		}
+		.footer {
+			display: flex;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4" id="raid">
+					<h3>Raid</h3>
+					<label class="hover">
+						<span>ICC10</span>
+						<input type="radio" name="raid" checked>
+					</label>
+					<label class="hover">
+						<span>ICC25</span>
+						<input type="radio" name="raid">
+					</label>
+					<label class="hover">
+						<span>RS10</span>
+						<input type="radio" name="raid">
+					</label>
+					<label class="hover">
+						<span>RS25</span>
+						<input type="radio" name="raid">
+					</label>
+					<label class="hover">
+						<span>Ulduar10</span>
+						<input type="radio" name="raid">
+					</label>
+					<label class="hover">
+						<span>Ulduar25</span>
+						<input type="radio" name="raid">
+					</label>
+					<label class="hover">
+						<span>RDF</span>
+						<input type="radio" name="raid">
+					</label>
+					<hr>
+					<label class="hover">
+						<span>GS and achi required</span>
+						<input type="checkbox" name="gsReq">
+					</label>
+				</div>
+				<div class="col-md-4" id="diff">
+					<h3>Type</h3>
+					<label class="hover">
+						<span>Normal</span>
+						<input type="radio" name="diff" checked>
+					</label>
+					<label class="hover">
+						<span>Heroic</span>
+						<input type="radio" name="diff">
+					</label>
+					<label class="hover">
+						<span>Dynamic</span>
+						<input type="radio" name="diff">
+					</label>
+					<label class="hover">
+						<span>Glory</span>
+						<input type="radio" name="diff">
+					</label>
+					<label class="hover">
+						<span>Herald</span>
+						<input type="radio" name="diff">
+					</label>
+					<label class="hover">
+						<span>Rep Farm</span>
+						<input type="radio" name="diff">
+					</label>
+					<label class="hover">
+						<span>None</span>
+						<input type="radio" name="diff">
+					</label>
+					<hr>
+					<label class="hover">
+						<span>BoE reserved</span>
+						<input type="checkbox" name="boeRes">
+					</label>
+				</div>
+				<div class="col-md-4" id="lfm">
+					<h3>Looking for</h3>
+					<label class="hover">
+						<span>Tank</span>
+						<input type="checkbox" name="lfm">
+						<input type="range" min="0" max="2" value="1" onchange="updateVal(this)" onmousemove="updateVal(this)">
+						<p> </p>
+					</label>
+					<label class="hover">
+						<span>Healer</span>
+						<input type="checkbox" name="lfm">
+						<input type="range" min="0" max="5" value="2" onchange="updateVal(this)" onmousemove="updateVal(this)">
+						<p> </p>
+					</label>
+					<label class="hover">
+						<span>MDPS</span>
+						<input type="checkbox" name="lfm">
+						<input type="range" min="0" max="10" value="2" onchange="updateVal(this)" onmousemove="updateVal(this)">
+						<p> </p>
+					</label>
+					<label class="hover">
+						<span>RDPS</span>
+						<input type="checkbox" name="lfm">
+						<input type="range" min="0" max="10" value="2" onchange="updateVal(this)" onmousemove="updateVal(this)">
+						<p> </p>
+					</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 footer">
+					<textarea id="output"></textarea>
+					<button class="btn btn-primary" onclick="generate()">Generate</button>
+					<textarea id="output2"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		for (let x = 0; x < document.querySelectorAll('[type="range"]').length; x++){
+			if (document.querySelectorAll('[type="range"]')[x].value == 0) {
+				document.querySelectorAll('[type="range"]')[x].nextElementSibling.innerHTML = 'Any';
+			} else {
+				document.querySelectorAll('[type="range"]')[x].nextElementSibling.innerHTML = document.querySelectorAll('[type="range"]')[x].value;
+			}		
+		}
+		function repos() {
+			container = document.querySelectorAll('.container')[0];
+			document.querySelectorAll('.container-fluid')[0].style.height = window.innerHeight + 'px';
+			container.style.top = (window.innerHeight - container.offsetHeight)/2 + "px";
+			container.style.left = (window.innerwidth - container.offsetWidth)/2 + "px";
+		}
+		function updateVal (element) {
+			console.log(element.value == '0');
+			if (element.value == '0') {
+				element.nextElementSibling.innerHTML = 'Any';
+			} else {
+				element.nextElementSibling.innerHTML = element.value;
+			}
+		}
+
+		function generate () {
+			var raid = '';
+			var diff = '';
+			var lfm = '';
+			var message = '';
+			var gsReq = '';
+			var boeRes = '';
+			var boeCheck = document.querySelectorAll('[name="boeRes"]')[0];
+			var gsCheck = document.querySelectorAll('[name="gsReq"]')[0];
+			var raidList = document.querySelectorAll('[name="raid"]');
+			var diffList = document.querySelectorAll('[name="diff"]');
+			var lfmList = document.querySelectorAll('[name="lfm"]');
+
+			for (let i = 0; i < raidList.length; i++){
+				if (raidList[i].checked) {
+					raid = raidList[i].previousElementSibling.innerHTML;
+				}
+			}
+			for (let j = 0; j < diffList.length; j++){
+				if (diffList[j].checked && j != 3) {
+					diff = diffList[j].previousElementSibling.innerHTML;
+				}
+			}			
+
+
+			for (let k = 0; k < lfmList.length; k++){
+				if (lfmList[k].checked) {
+					if (lfmList[k].nextElementSibling.value == '0') {
+						lfm += lfmList[k].previousElementSibling.innerHTML + ', ';
+					} else {
+						lfm += lfmList[k].nextElementSibling.value + ' ' + lfmList[k].previousElementSibling.innerHTML + ', ';
+					}
+				}
+				// if (lfm == ''){
+				// 	lfm = 'ALL ';
+				// }
+			}
+			if (gsCheck.checked){
+				gsReq = '| Whisper GS and Achi '
+			} else {
+				gsReq = '';
+			}
+			if (boeCheck.checked){
+				boeRes = '| BoE Primo res';
+			} else {
+				boeRes = '';
+			}
+			message = 'LFM ' + raid + ' ' + diff +' need ' + lfm + gsReq + boeRes; 
+			document.getElementById('output').innerHTML = message;
+			document.getElementById('output2').innerHTML = '/floodmsg ' + message;
+			console.log(message);
+		}
+
+		document.addEventListener('resize', repos);
+		repos();
+	</script>
+</body>
+</html>

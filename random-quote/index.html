@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Nikola Tasic">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image" href="./favico.png">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> <!-- reset.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> <!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> <!-- Animate.css -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- FontAwesome -->
+		<link rel="stylesheet" type="text/css" href="./css/style.css"> <!-- local CSS -->
+		<!-- <link rel="stylesheet" type="text/css" href="./css/responsive.css"> local Responsive -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i|Roboto+Slab" rel="stylesheet"><!-- Fonts -->
+		
+
+		<title>RandomQuote</title>
+	</head>
+	<body scroll="no" style="overflow: hidden">
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> <!-- jQuery -->
+		<div class="bg" id="bg0">	
+
+		</div>
+		<div class="bg" id="bg1">
+			
+		</div>
+		<div id="container"> 
+			<p id="quoteBox">Click the button to begin...</p>
+			<p id="authorBox"></p>
+			<button id="next" class="btn btn-default clickable animated bounce">Random quote</button>
+			<a href="http://www.facebook.com/sharer.php?s=100&p[url]=" target="_blank" id="facebook"><button class="btn btn-default" title="Share on Facebook"><i class="fa fa-facebook"></i></button></a>
+			<a href="" target="_blank" id="twitter"><button class="btn btn-default" title="Share on Twitter"><i class="fa fa-twitter"></i></button></a>
+		</div>
+		<script type="text/javascript">
+			$(window).resize(function(){
+				var windowWidth =  ($(window).width())
+				var windowHeight =  ($(window).height())
+			    $('#container').css({
+			        position:'fixed',
+			        left: (windowWidth - $('#container').outerWidth())/2,
+			        top: (windowHeight - $('#container').outerHeight())/2
+			    });
+			    $('.bg').css({
+			        width: windowWidth,
+			        height: windowHeight 
+			    });
+			});
+			$(window).resize();
+		</script>
+		<script type="text/javascript" src="./js/quotes.js"></script>
+		<script type="text/javascript">
+			$('#twitter').hover(function(){
+				var endShareString = [];
+				var shareString = $('#quoteBox').text().split("");
+				for (let i = 0; i < shareString.length; i++){
+					if (shareString[i] == " ") {
+						endShareString.push('%20');
+					} else {
+						endShareString.push(shareString[i]);
+					}
+				}
+				endShareString = endShareString.join("");
+				console.log(endShareString);
+				$('#twitter').attr('src', 'https://twitter.com/intent/tweet?text=' + endShareString);
+				console.log($('#twitter').attr('src'));
+			})
+			$('#twitter').click(function(event) {
+				if ($('#twitter').attr('src') == "https://twitter.com/intent/tweet?text=Click%20the%20button%20to%20begin") {
+					event.preventDefault();
+				} else {
+					event.preventDefault();
+					location.href = $('#twitter').attr('src');
+				}
+			});
+			$('#facebook').hover(function(){
+				$('#facebook').attr('src', 'http://www.facebook.com/sharer.php?s=100&p[url]=' + window.location.href);
+			});
+			$('#facebook').click(function(event) {
+				event.preventDefault();
+				location.href = $('#facebook').attr('src');
+			});
+		</script>
+		
+	</body>
+</html>

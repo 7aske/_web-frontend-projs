@@ -1,0 +1,61 @@
+html {
+	background-color: #000000;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#board {
+	border: 3px solid #000000;
+	height: 480px;
+	width: 640px;
+	position: relative;
+	background-color: #333333;
+	margin: 0 auto;
+}
+#player1,
+#player2 {
+	position: absolute;
+	width: 20px;
+	height: 80px;
+	box-sizing: border-box;
+	background-color: #dddddd;
+	border: 3px solid #000000;
+}
+#player1 {
+	left: 0px;
+}
+#player2 {
+	right: 0px;
+}
+#ball {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 190px;
+	left: 190px;
+	box-sizing: border-box;
+	background-color: #dddddd;
+	border: 3px solid #000000;
+}
+#settings {
+	padding: 20px;
+	text-align: center;
+}
+#scoreboard {
+	color: #dddddd;
+	font-size: 32px;
+	text-align: center;
+}
+button {
+	border: 3px solid #dddddd;
+	border-radius: 5px;
+	background-color: #333333;
+	width: 100px;
+	height: 50px;
+	color: #dddddd;
+	font-weight: 700;
+	font-size: 24px;
+	cursor: pointer;
+}
+p {
+	text-align: center;
+	color: #dddddd;
+}

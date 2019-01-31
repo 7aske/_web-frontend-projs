@@ -1,0 +1,159 @@
+* {
+	font-family: 'Slabo 27px', serif;
+}
+html {
+	background-color: peachpuff;
+}
+
+.border {
+	border-radius: 20px;
+	border-style: outset;
+	border: 10px solid rgba(0, 0, 0, 0.849);
+	height: 400px;
+	width: 400px;
+	position: relative;
+	margin: {
+		top: 200px;
+		left: auto;
+		right: auto;
+	}
+	.shadow {
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0);
+		top: -10px;
+		height: 10px;
+		width: 100%;
+		box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.9);
+	}
+}
+#clock {
+	background-color: rgba(255, 255, 255, 0.95);
+	border-radius: 10px;
+	height: 400px;
+	width: 400px;
+	box-shadow: 0px 150px 100px rgba(0, 0, 0, 0.5);
+	.tab {
+		transform-origin: 50% 200px;
+		background-color: black;
+		position: absolute;
+		left: 198px;
+		top: 0px;
+		width: 4px;
+		height: 8px;
+	}
+	.littleTab {
+		transform-origin: 50% 200px;
+		background-color: black;
+		position: absolute;
+		left: 199px;
+		top: 0px;
+		width: 2px;
+		height: 6px;
+	}
+	.hand {
+		position: absolute;
+		transform-origin: 50% 30px;
+		top: 170px;
+		background-color: rgba(0, 0, 0, 1);
+		transition: all;
+		transition-timing-function: ease-in;
+		border-radius: 5px;
+	}
+	#second {
+		transform-origin: 50% 50px;
+		top: 150px;
+		left: 199px;
+		height: 230px;
+		width: 2px;
+		background-color: rgba(255, 0, 0, 1);
+		z-index: 10;
+	}
+	#minute {
+		left: 197px;
+		height: 180px;
+		width: 6px;
+	}
+	#hour {
+		left: 196px;
+		height: 130px;
+		width: 8px;
+	}
+	.hourNum {
+		position: absolute;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		font-size: 32px;
+		text-align: center;
+		font-weight: 700;
+	}
+	#center {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		top: 198px;
+		left: 198px;
+		background-color: green;
+		border-radius: 50%;
+		z-index: 100;
+	}
+	#h12 {
+		left: 184px;
+		top: 5px;
+	}
+	#h9 {
+		left: 5px;
+		top: 180px;
+	}
+	#h6 {
+		bottom: 5px;
+		left: 184px;
+	}
+	#h3 {
+		top: 180px;
+		right: 5px;
+	}
+	#h1 {
+		top: 29.6px;
+		right: 98.3px;
+	}
+	#h2 {
+		top: 98.3px;
+		right: 29.6px;
+	}
+	#h4 {
+		bottom: 98.3px;
+		right: 29.6px;
+	}
+	#h5 {
+		bottom: 29.6px;
+		right: 98.3px;
+	}
+	#h7 {
+		bottom: 29.6px;
+		left: 98.3px;
+	}
+	#h8 {
+		bottom: 98.3px;
+		left: 29.6px;
+	}
+	#h11 {
+		top: 29.6px;
+		left: 98.3px;
+	}
+	#h10 {
+		top: 98.3px;
+		left: 29.6px;
+	}
+	// #quartz {
+	// 	position: absolute;
+	// 	background-color: rgba(0, 0, 0, 0.1);
+	// 	border: 1px solid rgba(0, 0, 0, 0.4);
+	// 	text-align: center;
+	// 	border-radius: 5px;
+	// 	color: rgba(0, 0, 0, 0.6);
+	// 	width: 50px;
+	// 	top: 290px;
+	// 	left: 175px;
+	// }
+}
